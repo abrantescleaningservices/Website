@@ -1,3 +1,9 @@
+body, html {
+    overflow-x: hidden;
+}
+
+
+
 .topHeader {
     text-align: start;
     margin-top:10px;
@@ -14,8 +20,11 @@
 .titleOptions{
     color: white;
     display: flex;
-    margin-bottom: 10px;
-    align-items: flex-end;
+
+    justify-content: center; /* Centraliza os itens */
+    align-items: center; /* Centraliza os itens */
+    width: 100%; /* Garante que os itens sejam distribuídos no container */
+    margin-top: 20px;
 }
 
 
@@ -46,6 +55,49 @@
     display: flex;
 }
 
+.buttonTitleAboutUs {
+    background-color: #D9D9D9;
+    color: black;
+    border-radius: 19px;
+    padding: 5px 10px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
+    margin-left: 30px;
+}
+
+.buttonTitleOurServices {
+    background-color: #D9D9D9;
+    color: black;
+    border-radius: 19px;
+    padding: 5px 10px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
+    margin-left: 15px;
+}
+.buttonTitleWhyUs {
+    background-color: #D9D9D9;
+    color: black;
+    border-radius: 19px;
+    padding: 5px 10px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
+    margin-left: 15px;
+}
+.buttonTitleContact {
+    background-color: #D9D9D9;
+    color: black;
+    border-radius: 19px;
+    padding: 5px 10px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
+    margin-left: 15px;
+    margin-right: 10px;
+}
+
 .WhyUsCheckPoint{
     background-color: #FFD563;
     height: 20px;
@@ -67,14 +119,21 @@
 }
 
 .title {
-    height: 250px;
     color: white;
-
+margin-bottom: 20px;
 }
 .ExperienceImage{
     margin-top: 30px;
     height: 162px;
     background-size: cover;
+}
+
+.CabecalhoImage{
+    height: 150px;
+    width: 120%;
+    background-size: cover;
+    margin-bottom: 20px; /* Adicione esta linha para criar espaço entre a imagem e o texto */
+
 }
 
 .ExperienceTextDate {
@@ -133,11 +192,178 @@
 }
 
 .titleSubText {
-    margin-left: 40px;
-    margin-right: 20px;
-    text-align: justify;
-    margin-top: 10px;
-    color: white;
-    max-width: 80%; /* Add this line to limit the width of the subtitle text */
+    margin-left: -10px;
+    margin-right: -20px;
+    text-align: center;
+    color: black;
+    font-size: 10px;
+    font-weight: normal;
+
 }
 
+.contactInfo span {
+    font-family: 'Inter', sans-serif;
+    font-size: 5px;
+    color: black;
+    margin-top: 5px; /* Espaço entre as linhas de texto */
+}
+
+.smokeSideR {
+    height: 300px;
+    width: 100%;
+    margin-top: -20px;
+    margin-right: -75px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; /* Evita repetição se a imagem for menor que o contêiner */
+    opacity: 80%;
+
+
+}
+.smokeSideL {
+    height: 300px;
+    width: 100%;
+    margin-left: -100px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat; /* Evita repetição se a imagem for menor que o contêiner */
+    opacity: 80%;
+
+}
+.container {
+    display: flex;
+}
+
+.aboutUsCard {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, .50%);
+    background-attachment: fixed; /* Adicione esta linha para o efeito parallax */
+
+}
+.titleTextAboutUs {
+    margin-top: 75px;
+font-weight: bold;
+
+}
+.titleSubTextAboutUs {
+    margin-top: 30px;
+    width: 75%; /* Adiciona largura máxima para forçar quebra de linha */
+    text-align: center;
+margin-bottom: 90px;
+
+}
+
+
+/* Estilos para desktop */
+@media (min-width: 768px) {
+    .row {
+        display: flex;
+        justify-content: center; /* Centraliza o conteúdo */
+    }
+
+    .titleOptions {
+        flex-direction: row; /* Alinha os itens horizontalmente */
+        justify-content: center; /* Centraliza os itens */
+        width: 100%; /* Garante que os itens sejam distribuídos no container */
+        max-width: 1200px; /* Limita a largura máxima para evitar expansão excessiva */
+        margin: 0 auto; /* Centraliza o container em telas maiores */
+        margin-top: 20px;
+    }
+
+    .buttonTitleAboutUs,
+    .buttonTitleOurServices,
+    .buttonTitleWhyUs,
+    .buttonTitleContact {
+        margin: 0 15px; /* Espaçamento entre os botões */
+        font-size: 14px; /* Aumenta o tamanho da fonte para desktop */
+        width: 100px;
+        text-align: center;
+    }
+
+    .contactInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza as informações de contato */
+        margin-left: 15px;
+    }
+
+    .contactInfo span {
+        font-size: 12px; /* Aumenta o tamanho da fonte para os spans */
+        margin-top: 5px; /* Espaço entre as linhas de texto */
+    }
+
+    .smokeSideL {
+        height: 400px;
+        width: 30%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat; /* Evita repetição se a imagem for menor que o contêiner */
+        opacity: 80%;
+    }
+
+    .smokeSideR {
+        height: 400px;
+        width: 30%;
+        margin-left: auto;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat; /* Evita repetição se a imagem for menor que o contêiner */
+        opacity: 80%;
+
+    }
+
+    .CabecalhoImage {
+        height: 400px;
+        width: 60%;
+        background-size: cover;
+        background-position: center;
+        margin-bottom: -20px;
+
+    }
+
+    .titleSubText {
+        text-align: center;
+        color: black;
+        margin: 20px 0 -40px 30px;
+        font-size: 20px;
+        font-weight: normal;
+        width: 75%; /* Adiciona largura máxima para forçar quebra de linha */
+    }
+
+    .aboutUsCard {
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Adicione esta linha para o efeito parallax */
+        background-size: cover;
+
+    }
+
+    .titleTextAboutUs {
+        margin-top: 145px;
+        font-weight: bold;
+        font-size: 25px;
+    }
+
+    .titleSubTextAboutUs {
+        margin-top: 70px;
+        width: 65%; /* Adiciona largura máxima para forçar quebra de linha */
+        text-align: center;
+        margin-bottom: 170px;
+        font-size: 25px;
+    }
+
+
+
+}
