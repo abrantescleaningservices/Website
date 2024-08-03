@@ -5,13 +5,11 @@ import cabecalhoImage from '../../Images/cabecalhoImage.png';
 import SmokeRightSide from '../../Images/SmokeRightSide.png';
 import SmokeLeftSide from '../../Images/SmokeLeftSide.png';
 import aboutUsBackground from '../../Images/AboutUsBackground.png'
-import whyUsImage from '../../Images/WhyUs.jpeg';
-import OurService1 from '../../Images/OurServices1.jpeg';
-import OurService2 from '../../Images/OurServices2.png';
-import OurService3 from '../../Images/OurServices3.jpeg';
+import OurService1 from '../../Images/OurServices1.jpg';
+import OurService2 from '../../Images/OurServices2.jpg';
+import OurService3 from '../../Images/OurServices3.jpg';
 
 function Home() {
-    const experience_image_url = 'https://cleanmypremises.ca/wp-content/uploads/2021/04/woman-with-gloves-cleaning-solution-disinfecting-gym-equipment.jpg'
     const targetDivRefAboutUs = useRef(null);
     const targetDivRefOurServices = useRef(null);
     const targetDivRefWhyUs = useRef(null);
@@ -64,7 +62,7 @@ function Home() {
                     <div onClick={scrollToTargetDivOurServices} className="buttonTitleOurServices">Our
                         Services
                     </div>
-                    <div onClick={scrollToTargetDivWhyUs} className="buttonTitleWhyUs">Why Us?
+                    <div onClick={scrollToTargetDivWhyUs} className="buttonTitleContact">Why Us?
                     </div>
                     <div onClick={scrollToTargetDivContact} className="buttonTitleContact">
                         Contact
@@ -98,7 +96,7 @@ function Home() {
                              backgroundImage: `url(${cabecalhoImage})`
                          }}
                     />
-                    <div className='titleSubText' style={{color: "black"}}  ref={targetDivRefAboutUs}>
+                    <div className='titleSubText' style={{color: "black"}} ref={targetDivRefAboutUs}>
                         We are a professional cleaning company specializing in providing top-notch
                         cleaning services to commercial and residential properties.
                     </div>
@@ -122,240 +120,164 @@ function Home() {
                 </div>
             </div>
 
-            <div ref={targetDivRefOurServices} className="OurServicesTitleText">
-                Our Services
-            </div>
-
-            <div style={{
-                display: 'flex',
-                justifyContent: 'space-around', // Distribute space evenly between child elements
-            }}>
-
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column', // Stack child elements vertically
-                        alignItems: 'center', // Center child elements horizontally
-                        width: '80px' // Set a fixed width for the parent div
-                    }}
-                >
-                    <div className="OurServicesImages" style={{backgroundImage: `url(${OurService1})`}}></div>
-                    <div className="OurServicesText">Mirror Cleaning</div>
+            <div className='ourServicesCard'>
+                <div ref={targetDivRefOurServices} className="OurServicesTitleText">
+                    OUR SERVICES
                 </div>
 
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column', // Stack child elements vertically
-                        alignItems: 'center', // Center child elements horizontally
-                        width: '80px' // Set a fixed width for the parent div
-                    }}
-                >
-                    <div className="OurServicesImages" style={{backgroundImage: `url(${OurService2})`}}></div>
-                    <div className="OurServicesText">Commercial Cleaning</div>
-                </div>
+                <div className='ourServicesSpaceCards'>
 
-                <div
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column', // Stack child elements vertically
-                        alignItems: 'center', // Center child elements horizontally
-                        width: '80px' // Set a fixed width for the parent div
-                    }}
-                >
-                    <div className="OurServicesImages" style={{backgroundImage: `url(${OurService3})`}}></div>
-                    <div className="OurServicesText">Vacuum Cleaning</div>
-                </div>
-            </div>
-
-            <div style={{
-                marginTop: '15px',
-                display: 'flex',
-                alignItems: 'start', // Optional: Align items vertically centered
-            }}>
-
-                <div className="WhyUsLeftSide"
-                     style={{
-                         display: 'flex',
-                         flexDirection: 'column', // Add flexDirection: 'column' to stack child elements vertically
-                     }}
-                >
-                    <div ref={targetDivRefWhyUs} className="WhyUsTitleText" style={{opacity: '50%'}}>
-                        Why Choose Us?
-                    </div>
-
-                    <div className="WhyUsImage"
-                         style={{
-                             backgroundImage: `url(${whyUsImage})`,
-
-                         }}
-                    />
-                </div>
-
-                <div className="WhyUsGroupCheck">
-
-                    <div style={{
-
-                        display: 'flex',
-                        alignItems: 'center', // Optional: Align items vertically centered
-                    }}>
-                        <div className="WhyUsCheckPoint">
-                            &#10003;
-                        </div>
-                        <div className="WhyUsTextCheck">
-                            Trained and experienced cleaners
-                        </div>
-                    </div>
-                    <div style={{
-                        marginTop: '10px',
-                        display: 'flex',
-                        alignItems: 'center', // Optional: Align items vertically centered
-                    }}>
-                        <div className="WhyUsCheckPoint">
-                            &#10003;
-                        </div>
-                        <div className="WhyUsTextCheck">
-                            Commitment regardless of date
-                        </div>
-                    </div>
-                    <div style={{
-                        marginTop: '10px',
-                        display: 'flex',
-                        alignItems: 'center', // Optional: Align items vertically centered
-                    }}>
-                        <div className="WhyUsCheckPoint">
-                            &#10003;
-                        </div>
-                        <div className="WhyUsTextCheck">
-                            Flexible scheduling options
-                        </div>
-                    </div>
-                    <div style={{
-                        marginTop: '10px',
-                        display: 'flex',
-                        alignItems: 'center', // Optional: Align items vertically centered
-                    }}>
-                        <div className="WhyUsCheckPoint">
-                            &#10003;
-                        </div>
-                        <div className="WhyUsTextCheck">
-                            100% satisfaction guarantee
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column', // Stack child elements vertically
+                            alignItems: 'center', // Center child elements horizontally
+                        }}
+                    >
+                        <div className="OurServicesImages" style={{backgroundImage: `url(${OurService3})`}}></div>
+                        <div className="OurServicesText">Residential &
+                            Commercial
                         </div>
                     </div>
 
-                </div>
 
-            </div>
-
-            <div ref={targetDivRefContact} style={{backgroundColor: '#D9D9D9', height: '140px', marginTop: '25px'}}>
-                <div className="AboutUsCollection" style={{paddingTop: '10px'}}>
-                    <div style={{fontSize: "15px", marginLeft: '15px', fontWeight: "bold"}}>
-                        Contact Us
-                    </div>
-                    <div style={{fontSize: "10px", marginLeft: '15px', marginTop: '10px'}}>
-                        For more information or to schedule a cleaning appointment
-                        please contact us at:
-                    </div>
-                    <div style={{
-                        marginTop: '5px',
-                        display: 'flex',
-                        alignItems: 'center', // Optional: Align items vertically centered
-                    }}>
-                        <div style={{fontSize: "10px", marginLeft: '15px'}}>
-                            Phone:
-                        </div>
-                        <div
-                            style={{
-                                fontSize: '10px',
-                                marginLeft: '5px',
-                                fontWeight: 'bold',
-                                display: 'flex',
-                                alignItems: 'center',
-                            }}
-                        >
-                            +1 (475) 377-2482
-                            <button
-                                style={{
-                                    marginLeft: '5px',
-                                    backgroundColor: 'transparent',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={handleCopyPhone}
-                            >
-                                <FaCopy/>
-                            </button>
-                        </div>
-                        {phoneCopied && (
-                            <div style={{marginLeft: '5px', fontSize: '10px', color: 'green'}}>
-                                Copied!
-                            </div>
-                        )}
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column', // Stack child elements vertically
+                            alignItems: 'center', // Center child elements horizontally
+                        }}
+                    >
+                        <div className="OurServicesImages" style={{backgroundImage: `url(${OurService2})`}}></div>
+                        <div className="OurServicesText">Vacuum and mooping floors</div>
                     </div>
 
                     <div
                         style={{
-                            marginTop: '5px',
                             display: 'flex',
-                            alignItems: 'center', // Optional: Align items vertically centered
+                            flexDirection: 'column', // Stack child elements vertically
+                            alignItems: 'center', // Center child elements horizontally
+
                         }}
                     >
-                        <div style={{fontSize: '10px', marginLeft: '15px'}}>E-mail:</div>
-                        <div
-                            style={{
-                                fontSize: '10px',
-                                marginLeft: '3px',
-                                fontWeight: 'bold',
-                                display: 'flex',
-                                alignItems: 'center',
-                            }}
-                        >
-                            contact@kakuscleaning.com
-                            <button
-                                style={{
-                                    marginLeft: '5px',
-                                    backgroundColor: 'transparent',
-                                    border: 'none',
-                                    cursor: 'pointer',
-                                }}
-                                onClick={handleCopyEmail}
-                            >
-                                <FaCopy/>
-                            </button>
-                        </div>
-                        {emailCopied && (
-                            <div style={{marginLeft: '5px', fontSize: '10px', color: 'green'}}>
-                                Copied!
-                            </div>
-                        )}
+                        <div className="OurServicesImages" style={{backgroundImage: `url(${OurService1})`}}></div>
+                        <div className="OurServicesText"> Window and mirrors cleaning</div>
                     </div>
 
-                    <div style={{
-                        marginTop: '5px',
-                        display: 'flex',
-                        alignItems: 'center', // Optional: Align items vertically centered
-                    }}>
-                        <div style={{fontSize: "10px", marginLeft: '15px'}}>
-                            From:
-                        </div>
-                        <div style={{fontSize: "10px", marginLeft: '3px', fontWeight: "bold"}}>
-                            Waterbury, CT
+
+                </div>
+                <div className="OurServicesBottom">
+
+                </div>
+            </div>
+
+            <div ref={targetDivRefWhyUs} className='WhyUsCard'>
+                <div className="WhyUs1TitleText">
+                    Why should
+                </div>
+                <div className="WhyUs3TitleText">
+                    you
+                </div>
+                <div className="WhyUs2TitleText">
+                    Choose
+                </div>
+                <div className="WhyUs3TitleText">
+                    Us?
+                </div>
+                <div className='WhyUsSpaceCards'>
+
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column', // Stack child elements vertically
+                            alignItems: 'center', // Center child elements horizontally
+                        }}
+                    >
+                        <div className="WhyUsImages" style={{backgroundImage: `url(${OurService3})`}}></div>
+                        <div className="WhyUsText">PET FRIENDLY
                         </div>
                     </div>
 
-                    <div>
-                        <a style={{fontSize: "10px", marginLeft: '15px', marginTop: '5px'}}
-                           href="https://linktr.ee/kakuscleaning" target="_blank" rel="noopener noreferrer">
-                            Access for more Information
-                        </a>
+
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column', // Stack child elements vertically
+                            alignItems: 'center', // Center child elements horizontally
+                        }}
+                    >
+                        <div className="WhyUsImages2" style={{backgroundImage: `url(${OurService2})`}}></div>
+                        <div className="WhyUsText">QUALITY ASSURANCE</div>
                     </div>
+
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column', // Stack child elements vertically
+                            alignItems: 'center', // Center child elements horizontally
+
+                        }}
+                    >
+                        <div className="WhyUsImages" style={{backgroundImage: `url(${OurService1})`}}></div>
+                        <div className="WhyUsText"> PONTUALITY</div>
+                    </div>
+
+
+                </div>
+                <div className="OurServicesBottom">
 
                 </div>
             </div>
 
 
-        </div>
-    );
+            <div ref={targetDivRefContact} style={{backgroundColor: 'white', height: '140px', marginTop: '25px'}}>
+                <div className="AboutUsCollection" style={{paddingTop: '60px'}}>
+                    <div className="contactTitleText">
+                        Contact Us
+                    </div>
+                    <div className="contactInfoText">
+                        For more information or to schedule a cleaning appointment
+                        please contact us at:
+                    </div>
+                    <div className="contactDetail">
+                        <div className="contactLabel">Phone:</div>
+                        <div className="contactValue">
+                            +1 (203) 800-1266
+                            <button className="copyButton" onClick={handleCopyPhone}>
+                                <FaCopy/>
+                            </button>
+                        </div>
+                        {phoneCopied && (
+                            <div className="copyStatus">Copied!</div>
+                        )}
+                    </div>
+
+                    <div className="contactDetail">
+                        <div className="contactLabel">E-mail:</div>
+                        <div className="contactValue">
+                            contact@abrantescleaningservices.com
+                            <button className="copyButton" onClick={handleCopyEmail}>
+                                <FaCopy/>
+                            </button>
+                        </div>
+                        {emailCopied && (
+                            <div className="copyStatus">Copied!</div>
+                        )}
+                    </div>
+
+                    <div className="contactSocialMedia">
+                        <div className="contactLabel">Instagram:</div>
+                        <div  className="contactValue">www.instagram.com/abrantescleaningservices/</div>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+</div>
+)
+    ;
 }
 
 export default Home;
