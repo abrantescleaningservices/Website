@@ -1,13 +1,17 @@
-import React, {useRef} from 'react';
-import {useState} from 'react';
-import {FaCopy} from 'react-icons/fa';
+import React, { useRef, useState } from 'react';
+import { FaCopy } from 'react-icons/fa';
+import Modal from 'react-modal';
 import cabecalhoImage from '../../Images/cabecalhoImage.png';
 import SmokeRightSide from '../../Images/SmokeRightSide.png';
 import SmokeLeftSide from '../../Images/SmokeLeftSide.png';
-import aboutUsBackground from '../../Images/AboutUsBackground.png'
+import aboutUsBackground from '../../Images/AboutUsBackground.png';
 import OurService1 from '../../Images/OurServices1.jpg';
 import OurService2 from '../../Images/OurServices2.jpg';
 import OurService3 from '../../Images/OurServices3.jpg';
+import FeedbackForm from '../Firebase/FeedbackForm';
+import FeedbackList from '../Firebase/FeedbackList';
+
+Modal.setAppElement('#root');  // Define the root element for accessibility
 
 function Home() {
     const targetDivRefAboutUs = useRef(null);
@@ -17,6 +21,7 @@ function Home() {
 
     const [phoneCopied, setPhoneCopied] = useState(false);
     const [emailCopied, setEmailCopied] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const handleCopyPhone = () => {
         navigator.clipboard.writeText('+1 (475) 377-2482');
@@ -34,40 +39,30 @@ function Home() {
         }, 2000);
     };
 
-
     function scrollToTargetDivAboutUs() {
-        targetDivRefAboutUs.current.scrollIntoView({behavior: 'smooth'});
+        targetDivRefAboutUs.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     function scrollToTargetDivOurServices() {
-        targetDivRefOurServices.current.scrollIntoView({behavior: 'smooth'});
+        targetDivRefOurServices.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     function scrollToTargetDivWhyUs() {
-        targetDivRefWhyUs.current.scrollIntoView({behavior: 'smooth'});
+        targetDivRefWhyUs.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     function scrollToTargetDivContact() {
-        targetDivRefContact.current.scrollIntoView({behavior: 'smooth'});
+        targetDivRefContact.current.scrollIntoView({ behavior: 'smooth' });
     }
 
     return (
         <div style={{backgroundColor: '#E8E7E7'}}>
-
             <div className='row' style={{display: "flex", justifyContent: "space-between"}}>
                 <div className="titleOptions">
-                    <div onClick={scrollToTargetDivAboutUs} className="buttonTitleAboutUs">About
-                        Us
-                    </div>
-                    <div onClick={scrollToTargetDivOurServices} className="buttonTitleOurServices">Our
-                        Services
-                    </div>
-                    <div onClick={scrollToTargetDivWhyUs} className="buttonTitleContact">Why Us?
-                    </div>
-                    <div onClick={scrollToTargetDivContact} className="buttonTitleContact">
-                        Contact
-                    </div>
-
+                    <div onClick={scrollToTargetDivAboutUs} className="buttonTitleAboutUs">About Us</div>
+                    <div onClick={scrollToTargetDivOurServices} className="buttonTitleOurServices">Our Services</div>
+                    <div onClick={scrollToTargetDivWhyUs} className="buttonTitleContact">Why Us?</div>
+                    <div onClick={scrollToTargetDivContact} className="buttonTitleContact">Contact</div>
                     <div className="contactInfo" style={{marginLeft: '15px', display: 'flex', flexDirection: 'column'}}>
                         <span>+(203)800-1266</span>
                         <span>@abrantescleaningservices</span>
@@ -75,15 +70,8 @@ function Home() {
                 </div>
             </div>
 
-
             <div className='container'>
-
-                <div
-                    className='smokeSideL'
-                    style={{
-                        backgroundImage: `url(${SmokeLeftSide})`,
-                    }}
-                />
+                <div className='smokeSideL' style={{backgroundImage: `url(${SmokeLeftSide})`}}/>
                 <div className='title' style={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -91,23 +79,13 @@ function Home() {
                     alignItems: 'center',
                     marginTop: '50px'
                 }}>
-                    <div className="CabecalhoImage"
-                         style={{
-                             backgroundImage: `url(${cabecalhoImage})`
-                         }}
-                    />
+                    <div className="CabecalhoImage" style={{backgroundImage: `url(${cabecalhoImage})`}}/>
                     <div className='titleSubText' style={{color: "black"}} ref={targetDivRefAboutUs}>
-                        We are a professional cleaning company specializing in providing top-notch
-                        cleaning services to commercial and residential properties.
+                        We are a professional cleaning company specializing in providing top-notch cleaning services to
+                        commercial and residential properties.
                     </div>
                 </div>
-
-                <div
-                    className='smokeSideR'
-                    style={{
-                        backgroundImage: `url(${SmokeRightSide})`,
-                    }}
-                />
+                <div className='smokeSideR' style={{backgroundImage: `url(${SmokeRightSide})`}}/>
             </div>
 
 
@@ -120,121 +98,74 @@ function Home() {
                 </div>
             </div>
 
-            <div className='ourServicesCard'>
-                <div ref={targetDivRefOurServices} className="OurServicesTitleText">
-                    OUR SERVICES
+                <div ref={targetDivRefOurServices} className="OurServicesTitleText">OUR CLIENTS FEEDBACK</div>
+
+                <div style={{padding: '20px'}}>
+                    <button onClick={() => setModalIsOpen(true)}>Leave Feedback</button>
+                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={{
+                        content: {
+                            top: '50%',
+                            left: '50%',
+                            right: 'auto',
+                            bottom: 'auto',
+                            marginRight: '-50%',
+                            transform: 'translate(-50%, -50%)'
+                        }
+                    }}>
+                        <h2>Costumer feedback form</h2>
+                        <button onClick={() => setModalIsOpen(false)}>Close</button>
+                        <FeedbackForm/>
+                    </Modal>
+                    <FeedbackList/>
                 </div>
 
+                <div className="OurServicesBottom"></div>
+
+
+            <div className='ourServicesCard'>
+                <div ref={targetDivRefOurServices} className="OurServicesTitleText">OUR SERVICES</div>
                 <div className='ourServicesSpaceCards'>
-
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column', // Stack child elements vertically
-                            alignItems: 'center', // Center child elements horizontally
-                        }}
-                    >
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <div className="OurServicesImages" style={{backgroundImage: `url(${OurService3})`}}></div>
-                        <div className="OurServicesText">Residential &
-                            Commercial
-                        </div>
+                        <div className="OurServicesText">Residential & Commercial</div>
                     </div>
-
-
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column', // Stack child elements vertically
-                            alignItems: 'center', // Center child elements horizontally
-                        }}
-                    >
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <div className="OurServicesImages" style={{backgroundImage: `url(${OurService2})`}}></div>
                         <div className="OurServicesText">Vacuum and mooping floors</div>
                     </div>
-
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column', // Stack child elements vertically
-                            alignItems: 'center', // Center child elements horizontally
-
-                        }}
-                    >
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <div className="OurServicesImages" style={{backgroundImage: `url(${OurService1})`}}></div>
                         <div className="OurServicesText"> Window and mirrors cleaning</div>
                     </div>
-
-
                 </div>
-                <div className="OurServicesBottom">
-
-                </div>
+                <div className="OurServicesBottom"></div>
             </div>
 
             <div ref={targetDivRefWhyUs} className='WhyUsCard'>
-                <div className="WhyUs1TitleText">
-                    Why should
-                </div>
-                <div className="WhyUs3TitleText">
-                    you
-                </div>
-                <div className="WhyUs2TitleText">
-                    Choose
-                </div>
-                <div className="WhyUs3TitleText">
-                    Us?
-                </div>
+                <div className="WhyUs1TitleText">Why should</div>
+                <div className="WhyUs3TitleText">you</div>
+                <div className="WhyUs2TitleText">Choose</div>
+                <div className="WhyUs3TitleText">Us?</div>
                 <div className='WhyUsSpaceCards'>
-
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column', // Stack child elements vertically
-                            alignItems: 'center', // Center child elements horizontally
-                        }}
-                    >
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <div className="WhyUsImages" style={{backgroundImage: `url(${OurService3})`}}></div>
-                        <div className="WhyUsText">PET FRIENDLY
-                        </div>
+                        <div className="WhyUsText">PET FRIENDLY</div>
                     </div>
-
-
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column', // Stack child elements vertically
-                            alignItems: 'center', // Center child elements horizontally
-                        }}
-                    >
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <div className="WhyUsImages2" style={{backgroundImage: `url(${OurService2})`}}></div>
                         <div className="WhyUsText">QUALITY ASSURANCE</div>
                     </div>
-
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column', // Stack child elements vertically
-                            alignItems: 'center', // Center child elements horizontally
-
-                        }}
-                    >
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <div className="WhyUsImages" style={{backgroundImage: `url(${OurService1})`}}></div>
                         <div className="WhyUsText"> PONTUALITY</div>
                     </div>
-
-
                 </div>
-                <div className="OurServicesBottom">
-
-                </div>
+                <div className="OurServicesBottom"></div>
             </div>
-
 
             <div ref={targetDivRefContact} style={{backgroundColor: 'white', height: '140px', marginTop: '25px'}}>
                 <div className="AboutUsCollection" style={{paddingTop: '60px'}}>
-                    <div className="contactTitleText">
-                        Contact Us
-                    </div>
+                    <div className="contactTitleText">Contact Us</div>
                     <div className="contactInfoText">
                         For more information or to schedule a cleaning appointment
                         please contact us at:
@@ -251,7 +182,6 @@ function Home() {
                             <div className="copyStatus">Copied!</div>
                         )}
                     </div>
-
                     <div className="contactDetail">
                         <div className="contactLabel">E-mail:</div>
                         <div className="contactValue">
@@ -264,23 +194,16 @@ function Home() {
                             <div className="copyStatus">Copied!</div>
                         )}
                     </div>
-
                     <div className="contactSocialMedia">
                         <div className="contactLabel">Instagram:</div>
-                        <div  className="contactValue">www.instagram.com/abrantescleaningservices/</div>
+                        <div className="contactValue">www.instagram.com/abrantescleaningservices/</div>
                     </div>
-
-
                 </div>
             </div>
 
 
-</div>
-)
-    ;
+        </div>
+    );
 }
 
 export default Home;
-//   <div className='title' style={{ opacity:'10',  backgroundPosition: 'center',
-//                 backgroundRepeat: 'no-repeat',
-//                 backgroundSize: 'cover',backgroundImage : `url(${title_image_url})` }}>
