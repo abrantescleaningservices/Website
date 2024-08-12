@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { FaCopy } from 'react-icons/fa';
 import Modal from 'react-modal';
 import cabecalhoImage from '../../Images/cabecalhoImage.png';
+import feedbackBackground from '../../Images/Feedbacktable.png';
 import SmokeRightSide from '../../Images/SmokeRightSide.png';
 import SmokeLeftSide from '../../Images/SmokeLeftSide.png';
 import aboutUsBackground from '../../Images/AboutUsBackground.png';
@@ -98,32 +99,38 @@ function Home() {
                 </div>
             </div>
 
-                <div ref={targetDivRefOurServices} className="OurServicesTitleText">OUR CLIENTS FEEDBACK</div>
+            <div className='feedBackCard'
+                 style={{backgroundImage: `url(${feedbackBackground})`, backgroundColor: 'rgba(255, 255, 255, 0.1)'}}>
+                <div className='titleTextFeedBack'>OUR CLIENTS FEEDBACK</div>
+                <div>
+                    <FeedbackList/>
+                </div>
 
-                <div style={{padding: '20px'}}>
-                    <button onClick={() => setModalIsOpen(true)}>Leave Feedback</button>
-                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={{
+                <div className="leavefeedbackbutton" onClick={() => setModalIsOpen(true)}>Leave Your Feedback</div>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={() => setModalIsOpen(false)}
+                    style={{
                         content: {
                             top: '50%',
                             left: '50%',
                             right: 'auto',
                             bottom: 'auto',
                             marginRight: '-50%',
-                            transform: 'translate(-50%, -50%)'
+                            transform: 'translate(-50%, -50%)',
+                            backgroundColor: '#f6f0e4'
                         }
-                    }}>
-                        <h2>Costumer feedback form</h2>
-                        <button onClick={() => setModalIsOpen(false)}>Close</button>
-                        <FeedbackForm/>
-                    </Modal>
-                    <FeedbackList/>
-                </div>
+                    }}
+                >
+                    <button className="back-button" onClick={() => setModalIsOpen(false)}>Close</button>
+                    <FeedbackForm closeModal={() => setModalIsOpen(false)}/>
+                </Modal>
+                <div className="FeedBackBottom"></div>
 
-                <div className="OurServicesBottom"></div>
-
+            </div>
 
             <div className='ourServicesCard'>
-                <div ref={targetDivRefOurServices} className="OurServicesTitleText">OUR SERVICES</div>
+            <div ref={targetDivRefOurServices} className="OurServicesTitleText">OUR SERVICES</div>
                 <div className='ourServicesSpaceCards'>
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <div className="OurServicesImages" style={{backgroundImage: `url(${OurService3})`}}></div>

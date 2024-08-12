@@ -150,6 +150,9 @@ margin-bottom: 20px;
 .OurServicesBottom {
     margin-bottom: 110px;
 }
+.FeedBackBottom {
+    margin-bottom: 40px;
+}
 
 .OurServicesText{
     width: 70%;
@@ -384,7 +387,45 @@ padding-bottom: 70px;
     margin-top: 5px;
 }
 
+.feedBackCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, .10%);
+    padding: 20px; /* Adiciona padding para garantir espaço interno */
+    box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
+    min-width: 320px; /* Largura mínima para evitar compressão */
+}
 
+
+.titleTextFeedBack {
+    margin-top: 70px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Nunito', sans-serif;
+    color: black;
+    text-align: center;
+
+}
+
+.leavefeedbackbutton {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    height: 30px;
+    margin-top:40px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
 /* Estilos para desktop */
 @media (min-width: 768px) {
     .row {
@@ -663,5 +704,49 @@ padding-bottom: 70px;
         margin-top: 5px;
     }
 
+    .feedBackCard {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white;
+        background-position: center;
+        background-size: cover;
+        background-color: rgba(0, 0, 0, .10%);
+        padding: 20px; /* Adiciona padding para garantir espaço interno */
+        box-sizing: border-box; /* Inclui padding e border no cálculo de largura/altura */
+        min-width: 320px; /* Largura mínima para evitar compressão */
+    }
+
+    .leavefeedbackbutton {
+        font-size: 15px;
+        color: black;
+        text-align: center;
+        height: 30px;
+        margin-top:100px;
+        margin-left: 500px;
+        margin-right: 500px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Nunito', sans-serif;
+        border-radius: 10px;
+        margin-bottom: 40px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .titleTextFeedBack {
+        margin-top: 120px;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'Nunito', sans-serif;
+        color: black;
+        text-align: center;
+
+    }
+
+    .FeedBackBottom {
+        margin-bottom: 110px;
+    }
 
 }

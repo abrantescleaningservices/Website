@@ -22,26 +22,26 @@ const FeedbackList = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
-        arrows: true,  // Adiciona setas de navegação
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000    ,
     };
 
     return (
         <div>
-            <h2 className="feedback-title">Feedbacks</h2>
             <Slider {...settings}>
                 {feedbacks.map(({ id, data }) => (
                     <div key={id} className="feedback-container">
-                        <p><strong>ID:</strong> {data.id}</p>
-                        <p><strong>Name:</strong> {data.name}</p>
-                        <p><strong>City:</strong> {data.city}</p>
-                        <p><strong>State:</strong> {data.state}</p>
-                        <p><strong>Date:</strong> {new Date(data.date).toLocaleDateString()}</p>
-                        <p><strong>Rating:</strong> {data.rating}</p>
-                        <p><strong>Approved:</strong> {data.approved ? 'Yes' : 'No'}</p>
-                        <p><strong>Comment:</strong> {data.comment}</p>
+                        <h3 className="feedback-title">{data.name}, from {data.city}, {data.state}</h3>
+                        <p className="feedback-comment">{data.comment}</p>
+                        <div className="feedback-rating">
+                            {[...Array(data.rating)].map((_, index) => (
+                                <span key={index} className="star">★</span>
+                            ))}
+                        </div>
                     </div>
                 ))}
             </Slider>

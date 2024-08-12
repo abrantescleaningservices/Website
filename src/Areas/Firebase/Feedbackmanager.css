@@ -1,0 +1,95 @@
+/* src/Areas/Firebase/FeedbackManager.css */
+
+.feedback-manager-container {
+    background-color: #f6f0e4;
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #4a391f;
+}
+
+.feedback-manager-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.feedback-manager-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.feedback-manager-item {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-manager-item p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+.feedback-manager-approve-button,
+.feedback-manager-disapprove-button,
+.feedback-manager-delete-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.feedback-manager-approve-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.feedback-manager-approve-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.feedback-manager-approve-button:active {
+    background-color: #388e3c;
+    transform: translateY(0);
+}
+
+.feedback-manager-disapprove-button {
+    background-color: #808080;
+    color: white;
+}
+
+.feedback-manager-disapprove-button:hover {
+    background-color: #696969;
+    transform: translateY(-2px);
+}
+
+.feedback-manager-disapprove-button:active {
+    background-color: #505050;
+    transform: translateY(0);
+}
+
+.feedback-manager-delete-button {
+    background-color: #e53935;
+    color: white;
+    margin-left: 10px;
+}
+
+.feedback-manager-delete-button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+.feedback-manager-delete-button:active {
+    background-color: #c62828;
+    transform: translateY(0);
+}

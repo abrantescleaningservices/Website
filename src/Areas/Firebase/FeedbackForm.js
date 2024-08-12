@@ -3,7 +3,7 @@ import { db } from './firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { FaStar } from 'react-icons/fa';
 
-const FeedbackForm = () => {
+const FeedbackForm = ({ closeModal }) => {
   const [name, setName] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -37,70 +37,57 @@ const FeedbackForm = () => {
       setComment('');
 
       alert('Feedback enviado com sucesso!');
+      closeModal(); // Fecha o modal após o envio do feedback
     } catch (error) {
       console.error('Erro ao enviar feedback: ', error);
     }
   };
 
   return (
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Your name:
-            <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-          </label>
+      <div className="feedback-form-container">
+        <h1 className="form-title">Customer Feedback Form</h1>
+
+
+        <div className="feedback-question">
+          <p style={{ textAlign: "center" }}>Your name:</p>
+          <input type="text"
+                 value={name}
+                 onChange={(e) => setName(e.target.value)} className="feedback-input" />
+
+          <p style={{ textAlign: "center" }}>Your city:</p>
+          <input type="text"
+                 value={city}
+                 onChange={(e) => setCity(e.target.value)} className="feedback-input" />
+
+          <p style={{ textAlign: "center" }}>Your State:</p>
+          <input type="text"
+                 value={state}
+                 onChange={(e) => setState(e.target.value)} className="feedback-input" />
+
+          <p style={{ textAlign: "center" }}>Rate our service:</p>
+          <div style={{ display: 'flex', gap: '5px', justifyContent: 'center' }}>
+            {[1, 2, 3, 4, 5].map((value) => (
+                <FaStar
+                    key={value}
+                    size={24}
+                    color={value <= rating ? '#ffc107' : '#e4e5e9'}
+                    onClick={() => setRating(value)}
+                    style={{ cursor: 'pointer' }}
+                />
+            ))}
+          </div>
+
+          <p style={{ textAlign: "center" }}>Write your feedback:</p>
+          <textarea className="feedback-input"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+          ></textarea>
         </div>
-        <div>
-          <label>
-            Your city:
-            <input
-                type="text"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-            />
-          </label>
+
+        <div className="button-container">
+          <button className="submit-button" onClick={handleSubmit}>Submit</button>
         </div>
-        <div>
-          <label>
-            Your state:
-            <input
-                type="text"
-                value={state}
-                onChange={(e) => setState(e.target.value)}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Rate our service:
-            <div style={{ display: 'flex', gap: '5px' }}>
-              {[1, 2, 3, 4, 5].map((value) => (
-                  <FaStar
-                      key={value}
-                      size={24}
-                      color={value <= rating ? '#ffc107' : '#e4e5e9'}
-                      onClick={() => setRating(value)}
-                      style={{ cursor: 'pointer' }}
-                  />
-              ))}
-            </div>
-          </label>
-        </div>
-        <div>
-          <label>
-            Write your feedback:
-            <textarea
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-            ></textarea>
-          </label>
-        </div>
-        <button type="submit">Send</button>
-      </form>
+      </div>
   );
 };
 
