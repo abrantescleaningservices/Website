@@ -1,7 +1,7 @@
 /* src/Areas/Firebase/FeedbackManager.css */
 
 .feedback-manager-container {
-    background-color: #f6f0e4;
+    background: linear-gradient(90deg, #96cbc8, #ffffff);
     padding: 40px;
     border-radius: 16px;
     max-width: 800px;

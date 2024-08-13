@@ -1,6 +1,8 @@
+// src/Areas/Firebase/FeedbackList.js
+
 import React, { useEffect, useState } from 'react';
 import { db } from './firebase';
-import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, query, where, onSnapshot } from 'firebase/firestore';
 import Slider from 'react-slick';
 import './Feedbackstyle.css';  // Importa o arquivo CSS
 
@@ -8,12 +10,21 @@ const FeedbackList = () => {
     const [feedbacks, setFeedbacks] = useState([]);
 
     useEffect(() => {
-        const q = query(collection(db, 'feedback'), orderBy('timestamp', 'desc'));
+        // Filtro para itens aprovados com uma nova abordagem para a query
+        const q = query(
+            collection(db, 'feedback'),
+            where('approved', '==', true)
+        );
+
         const unsubscribe = onSnapshot(q, (snapshot) => {
-            setFeedbacks(snapshot.docs.map(doc => ({
-                id: doc.id,
-                data: doc.data()
-            })));
+            if (!snapshot.empty) {
+                setFeedbacks(snapshot.docs.map(doc => ({
+                    id: doc.id,
+                    data: doc.data()
+                })));
+            } else {
+                setFeedbacks([]);  // Define a lista como vazia se não houver documentos
+            }
         });
 
         return () => unsubscribe();
@@ -21,13 +32,13 @@ const FeedbackList = () => {
 
     const settings = {
         dots: true,
-        infinite: true,
+        infinite: feedbacks.length > 1,
         speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        autoplay: true,
-        autoplaySpeed: 5000    ,
+        autoplay: feedbacks.length > 1,
+        autoplaySpeed: 5000,
     };
 
     return (

@@ -30,7 +30,10 @@ body, html {
     width: 100%; /* Garante que os itens sejam distribuídos no container */
     margin-top: 20px;
 }
-
+/* Adicione essa classe para evitar quebra de linha */
+.no-wrap {
+    white-space: nowrap;
+}
 
 .containerStyle{
     position: relative;
@@ -45,11 +48,11 @@ body, html {
     background-color: #D9D9D9;
     color: black;
     border-radius: 19px;
-    padding: 5px 10px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    padding: 5px 15px; /* Aumentei um pouco o padding horizontal para melhor aparência */
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
-    margin-left: 30px;
+    margin-left: 10px;
 }
 
 .buttonTitleOurServices {
@@ -60,7 +63,7 @@ body, html {
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 .buttonTitleContact {
@@ -71,7 +74,7 @@ body, html {
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
-    margin-left: 15px;
+    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -175,7 +178,7 @@ margin-bottom: 20px;
     margin-right: -20px;
     text-align: center;
     color: black;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: normal;
     font-family: 'Nunito', sans-serif;
 
