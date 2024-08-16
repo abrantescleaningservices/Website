@@ -93,3 +93,42 @@
     background-color: #c62828;
     transform: translateY(0);
 }
+
+.feedback-manager-image-container {
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.feedback-manager-image {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-manager-remove-image-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #e53935;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.feedback-manager-remove-image-button:hover {
+    background-color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+.feedback-manager-remove-image-button:active {
+    background-color: #c62828;
+    transform: translateY(0);
+}

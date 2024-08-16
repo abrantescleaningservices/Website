@@ -1,8 +1,7 @@
-// src/Areas/Firebase/FeedbackManager.js
-
 import React, { useState, useEffect } from 'react';
-import { db } from './firebase';
+import { db, storage } from './firebase'; // Import storage from Firebase
 import { collection, getDocs, deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import { ref, deleteObject } from 'firebase/storage'; // Import deleteObject from Firebase storage
 import './Feedbackmanager.css';
 
 const FeedbackManager = () => {
@@ -19,13 +18,41 @@ const FeedbackManager = () => {
         fetchFeedbacks();
     }, []);
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id, imageUrl) => {
         try {
+            // Verifica se há uma imagem associada e a remove do Firebase Storage
+            if (imageUrl) {
+                const imageRef = ref(storage, imageUrl);
+                await deleteObject(imageRef);
+            }
+
+            // Deleta o documento do Firestore
             await deleteDoc(doc(db, 'feedback', id));
             setFeedbacks(feedbacks.filter(feedback => feedback.id !== id));
-            alert('Feedback deletado com sucesso!');
+            alert('Feedback deleted successfully!');
         } catch (error) {
-            console.error('Erro ao deletar feedback: ', error);
+            console.error('Error deleting feedback: ', error);
+        }
+    };
+
+    const handleRemoveImage = async (id, imageUrl) => {
+        try {
+            // Deletar a imagem do Firebase Storage
+            const imageRef = ref(storage, imageUrl);
+            await deleteObject(imageRef);
+
+            // Atualizar o documento para remover a URL da imagem
+            const feedbackDoc = doc(db, 'feedback', id);
+            await updateDoc(feedbackDoc, { imageUrl: '' });
+
+            // Atualizar o estado local
+            setFeedbacks(feedbacks.map(feedback =>
+                feedback.id === id ? { ...feedback, imageUrl: '' } : feedback
+            ));
+
+            alert('Image removed successfully!');
+        } catch (error) {
+            console.error('Error removing image: ', error);
         }
     };
 
@@ -37,13 +64,13 @@ const FeedbackManager = () => {
                 feedback.id === id ? { ...feedback, approved: !currentApproval } : feedback
             ));
         } catch (error) {
-            console.error('Erro ao atualizar aprovação: ', error);
+            console.error('Error updating approval: ', error);
         }
     };
 
     return (
         <div className="feedback-manager-container">
-            <h1 className="feedback-manager-title">Clients feedback</h1>
+            <h1 className="feedback-manager-title">Clients Feedback</h1>
             {feedbacks.length > 0 ? (
                 <ul className="feedback-manager-list">
                     {feedbacks.map(feedback => (
@@ -55,6 +82,17 @@ const FeedbackManager = () => {
                             <p><strong>Rating:</strong> {feedback.rating}</p>
                             <p><strong>Feedback:</strong> {feedback.comment}</p>
                             <p><strong>Approved:</strong> {feedback.approved ? 'Yes' : 'No'}</p>
+                            {feedback.imageUrl && (
+                                <div className="feedback-manager-image-container">
+                                    <img src={feedback.imageUrl} alt="Feedback" className="feedback-manager-image" />
+                                    <button
+                                        onClick={() => handleRemoveImage(feedback.id, feedback.imageUrl)}
+                                        className="feedback-manager-remove-image-button"
+                                    >
+                                        Remove Image
+                                    </button>
+                                </div>
+                            )}
                             <button
                                 onClick={() => toggleApproval(feedback.id, feedback.approved)}
                                 className={feedback.approved ? "feedback-manager-disapprove-button" : "feedback-manager-approve-button"}
@@ -62,7 +100,7 @@ const FeedbackManager = () => {
                                 {feedback.approved ? 'Disapprove' : 'Approve'}
                             </button>
                             <button
-                                onClick={() => handleDelete(feedback.id)}
+                                onClick={() => handleDelete(feedback.id, feedback.imageUrl)}
                                 className="feedback-manager-delete-button"
                             >
                                 Delete
@@ -71,7 +109,7 @@ const FeedbackManager = () => {
                     ))}
                 </ul>
             ) : (
-                <p>No feedback founded.</p>
+                <p>No feedback found.</p>
             )}
         </div>
     );
