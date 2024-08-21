@@ -116,14 +116,12 @@ function Home() {
                     <FeedbackList/>
                 </div>
 
-                <div className="leavefeedbackbutton" onClick={() => setModalIsOpen(true)}>Leave Your Feedback</div>
+                <div style={{ cursor: 'pointer' }}  className="leavefeedbackbutton" onClick={() => setModalIsOpen(true)}>Leave Your Feedback</div>
                 <Modal
                     isOpen={modalIsOpen}
                     onRequestClose={() => setModalIsOpen(false)}
                     style={{
                         content: {
-
-
                             backgroundColor: '#f6f0e4'
                         }
                     }}
