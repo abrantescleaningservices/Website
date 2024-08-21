@@ -65,10 +65,10 @@ const FeedbackList = () => {
                         </div>
                         {data.imageUrl && (
                             <div
-                                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}
+                                style={{display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}
                                 onClick={() => openModal(data.imageUrl)}
                             >
-                                <img src={data.imageUrl} alt="Feedback" style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '10px', marginTop: '10px' }} />
+                                <img src={data.imageUrl} alt="Feedback" style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: '10px',  marginBottom:'10px', marginTop: '15px' }} />
                             </div>
                         )}
                     </div>

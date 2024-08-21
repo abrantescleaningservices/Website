@@ -11,7 +11,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (username === 'abrantes' && password === 'feedbackpassword') {
+        if (username === 'abrantes' && password === 'password') {
             navigate('/feedbackmanager');  // Redireciona para a página inicial após login bem-sucedido
         } else {
             setError('Usuário ou senha incorretos!');

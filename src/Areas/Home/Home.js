@@ -220,7 +220,29 @@ function Home() {
                 </div>
             </div>
 
+            <div ref={targetDivRefContact} style={{
+                height: 'auto',
+                padding: '10px',
+                boxSizing: 'border-box',
+                overflow: 'hidden',
+                maxWidth: '100%'
+            }}>
 
+                <div style={{display: "flex"}}>
+
+                    <div onClick={() => window.open('https://www.linkedin.com/in/vitorclaudio/', '_blank')}
+                         style={{marginRight: 'auto', fontSize: '6px'}}>
+                        Created by Vitor Claudio
+                    </div>
+
+                    <div style={{marginLeft: 'auto', fontSize: '6px'}}>
+                        <a href="#/feedback"> Feedback </a>
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
     );
 }
