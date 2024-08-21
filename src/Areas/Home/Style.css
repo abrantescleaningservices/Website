@@ -24,7 +24,6 @@ body, html {
 .titleOptions{
     color: white;
     display: flex;
-
     justify-content: center; /* Centraliza os itens */
     align-items: center; /* Centraliza os itens */
     width: 100%; /* Garante que os itens sejam distribuídos no container */
@@ -48,21 +47,21 @@ body, html {
     background-color: #D9D9D9;
     color: black;
     border-radius: 19px;
-    padding: 5px 15px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    padding: 5px 5px; /* Aumentei um pouco o padding horizontal para melhor aparência */
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
-    margin-left: 10px;
+    font-size: 8px; /* Ajuste conforme necessário para o tamanho desejado */
+    margin-left: 5px;
 }
 
 .buttonTitleOurServices {
     background-color: #D9D9D9;
     color: black;
     border-radius: 19px;
-    padding: 5px 10px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    padding: 5px 5px; /* Aumentei um pouco o padding horizontal para melhor aparência */
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
+    font-size: 8px; /* Ajuste conforme necessário para o tamanho desejado */
     margin-left: 5px;
 }
 
@@ -70,10 +69,10 @@ body, html {
     background-color: #D9D9D9;
     color: black;
     border-radius: 19px;
-    padding: 5px 10px; /* Aumentei um pouco o padding horizontal para melhor aparência */
+    padding: 5px 5px; /* Aumentei um pouco o padding horizontal para melhor aparência */
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 5px; /* Ajuste conforme necessário para o tamanho desejado */
+    font-size: 8px; /* Ajuste conforme necessário para o tamanho desejado */
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -429,7 +428,7 @@ padding-bottom: 70px;
     margin-bottom: 40px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
-/* Estilos para desktop */
+
 @media (min-width: 768px) {
     .row {
         display: flex;
@@ -621,7 +620,7 @@ padding-bottom: 70px;
     .WhyUsSpaceCards{
         display: flex;
         justify-content: space-evenly;
-        gap: 200px;
+        gap: 100px;
         margin-top: 20px;
     }
 
@@ -752,4 +751,41 @@ padding-bottom: 70px;
         margin-bottom: 110px;
     }
 
+}
+
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+    .titleOptions{
+        color: white;
+        display: flex;
+        justify-content: center; /* Centraliza os itens */
+        align-items: center; /* Centraliza os itens */
+        width: 80%; /* Garante que os itens sejam distribuídos no container */
+        margin-top: 20px;
+    }
+
+    .CabecalhoImage{
+        height: 180px;
+        background-size: cover;
+        margin-bottom: 20px; /* Adicione esta linha para criar espaço entre a imagem e o texto */
+
+    }
+    .leavefeedbackbutton {
+        width: 200px;
+        margin-left: 40%;
+
+    }
+
+    .ourServicesSpaceCards{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 100px;
+        margin-top: 30px;
+    }
+
+    .WhyUsSpaceCards{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 10px;
+        margin-top: 20px;
+    }
 }

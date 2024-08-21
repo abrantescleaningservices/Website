@@ -72,7 +72,7 @@ function Home() {
                     <div onClick={scrollToTargetDivOurServices} className="buttonTitleOurServices no-wrap">Our Services</div>
                     <div onClick={scrollToTargetDivWhyUs} className="buttonTitleContact no-wrap">Why Us?</div>
                     <div onClick={scrollToTargetDivContact} className="buttonTitleContact no-wrap">Contact</div>
-                    <div className="contactInfo" style={{marginLeft: '15px', display: 'flex', flexDirection: 'column'}}>
+                    <div className="contactInfo" style={{marginLeft: '5px', display: 'flex', flexDirection: 'column'}}>
                         <span className="no-wrap">+(203)800-1266</span>
                         <span                 style={{ cursor: 'pointer' }}       onClick={() => window.open('https://www.instagram.com/abrantescleaningservices/', '_blank')}  className="no-wrap">@abrantescleaningservices</span>
                     </div>
@@ -122,12 +122,8 @@ function Home() {
                     onRequestClose={() => setModalIsOpen(false)}
                     style={{
                         content: {
-                            top: '50%',
-                            left: '50%',
-                            right: 'auto',
-                            bottom: 'auto',
-                            marginRight: '-50%',
-                            transform: 'translate(-50%, -50%)',
+
+
                             backgroundColor: '#f6f0e4'
                         }
                     }}
@@ -180,7 +176,15 @@ function Home() {
                 <div className="OurServicesBottom"></div>
             </div>
 
-            <div ref={targetDivRefContact} style={{backgroundColor: 'white', height: '140px', marginTop: '25px'}}>
+            <div ref={targetDivRefContact} style={{
+                backgroundColor: 'white',
+                height: 'auto',
+                marginTop: '25px',
+                padding: '20px',
+                boxSizing: 'border-box',
+                overflow: 'hidden',
+                maxWidth: '100%'
+            }}>
                 <div className="AboutUsCollection" style={{paddingTop: '60px'}}>
                     <div className="contactTitleText">Contact Us</div>
                     <div className="contactInfoText">

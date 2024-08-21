@@ -224,3 +224,15 @@
 
 }
 
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+    .feedback-container {
+        width: 100%; /* Use a largura total disponível */
+        background-color: #FDFDFD;
+        margin: 50px 0; /* Margem vertical para separação entre itens */
+        margin-left: 15%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+        border-radius: 16px; /* Bordas levemente arredondadas */
+    }
+
+
+}
