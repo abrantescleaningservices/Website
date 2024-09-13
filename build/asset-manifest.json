@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.94e8a9f7.css",
+    "main.js": "/static/js/main.e902c6f7.js",
+    "static/js/787.66b2c165.chunk.js": "/static/js/787.66b2c165.chunk.js",
+    "static/media/cabecalhoImage.png": "/static/media/cabecalhoImage.aabeb2c765c85993d499.png",
+    "static/media/qualityassurance.png": "/static/media/qualityassurance.61d6e3887e4818e276c7.png",
+    "static/media/OurServices2.jpg": "/static/media/OurServices2.d569fc1be1597d339418.jpg",
+    "static/media/AboutUsBackground.png": "/static/media/AboutUsBackground.240129bf955710af0c0f.png",
+    "static/media/Feedbacktable.png": "/static/media/Feedbacktable.0d8e253f2690ced81ae1.png",
+    "static/media/SmokeRightSide.png": "/static/media/SmokeRightSide.c2a9ea3ba3193dd1e186.png",
+    "static/media/SmokeLeftSide.png": "/static/media/SmokeLeftSide.40344e2bb97cd7f013e2.png",
+    "static/media/OurServices1.jpg": "/static/media/OurServices1.1e9d05fb7c4b20959adc.jpg",
+    "static/media/petfriendlycard.avif": "/static/media/petfriendlycard.e4badad1059b895b5165.avif",
+    "static/media/OurServices3.jpg": "/static/media/OurServices3.988ad07686ee1689bb26.jpg",
+    "static/media/pontualityImage.webp": "/static/media/pontualityImage.fcc4fb5880ae872f3c11.webp",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.94e8a9f7.css.map": "/static/css/main.94e8a9f7.css.map",
+    "main.e902c6f7.js.map": "/static/js/main.e902c6f7.js.map",
+    "787.66b2c165.chunk.js.map": "/static/js/787.66b2c165.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.94e8a9f7.css",
+    "static/js/main.e902c6f7.js"
+  ]
+}
